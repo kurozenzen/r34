@@ -1,5 +1,5 @@
 // config
-const serviceUrl = "https://r34-json-api.herokuapp.com";
+const serviceUrl = "https://custom-r34-api.herokuapp.com";
 const autoCompleteUrl = "https://rule34.xxx/autocomplete.php";
 
 // angular
