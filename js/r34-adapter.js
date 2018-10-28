@@ -12,6 +12,7 @@ app.controller('r34Ctrl', function ($http) {
 
         // init variables
         controller.activeTags = [];
+        controller.alias = [];
         controller.pageId = 0;
         controller.pageSize = 10;
         controller.noImagesLeft = false;
@@ -99,12 +100,14 @@ app.controller('r34Ctrl', function ($http) {
 
         if (tag && tag != "" && !controller.activeTags.includes(tag)) {
             controller.activeTags.push(tag);
+            controller.getAlias();
         }
     };
 
     // remove a tag from selection
     controller.removeTag = function (tag) {
         controller.activeTags.splice(controller.activeTags.indexOf(tag), 1);
+        controller.getAlias();
     };
 
     // toggle a tag
@@ -135,6 +138,19 @@ app.controller('r34Ctrl', function ($http) {
                 });
         }
     };
+
+    controller.getAlias = function() {
+        controller.alias = [];
+        for(let activeTag of controller.activeTags) {
+            $http.get(serviceUrl + "/alias/" + activeTag)
+                .then(function (response) {
+                    controller.alias.push(...response.data.filter(t => !controller.activeTags.includes(t.name)));
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
 
     controller.vote = function (postId, type) {
         $http.get("https://rule34.xxx/index.php?page=post&s=vote&id=" + postId + "&type=" + type)

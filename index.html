@@ -51,7 +51,7 @@
             <form>
 
                 <!-- Tags -->
-                <div class="">
+                <div>
                     <label for="input_tag">Add tags:</label>
                     <div class="input-group d-flex">
                         <input id="input_tag" type="text" class="form-control">
@@ -61,6 +61,14 @@
                     </div>
                     <div class="tags d-flex flex-wrap pl-0 pr-0">
                         <span class="badge badge-tag" ng-click="ctrl.removeTag(tag)" ng-repeat="tag in ctrl.activeTags track by $index">{{tag}}</span>
+                    </div>
+
+                    <!-- Related Tags -->
+                    <div ng-if="ctrl.alias.length > 0">
+                        <label for="aliases">Related Tags</label>
+                        <div id="aliases" class="tags d-flex flex-wrap pl-0 pr-0">
+                            <span class="badge badge-tag" ng-click="ctrl.toggleTag(tag.name)" ng-repeat="tag in ctrl.alias | orderBy : posts | limitTo : 10 track by $index" ng-if="tag.posts > 0">{{tag.name}} ({{tag.posts}})</span>
+                        </div>
                     </div>
                 </div>
 
@@ -90,7 +98,7 @@
 
         <!-- Results -->
         <section class="container dark" ng-if="ctrl.posts.length > 0">
-            <h2>Results</h2>
+            <h2>Results</h2> 
 
             <!-- Posts -->
             <ul class="list-group list-inline" infinite-scroll="ctrl.infiniteScroll()" infinite-scroll-distance="3" infinite-scroll-disabled="ctrl.infiniteScrollDisabled()">
