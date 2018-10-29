@@ -31,6 +31,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
     <!-- Custom Styles-->
     <link rel="stylesheet" href="css/bootstrap-switch.min.css">
@@ -65,7 +66,7 @@
 
                     <!-- Related Tags -->
                     <div ng-if="ctrl.alias.length > 0">
-                        <label for="aliases">Related Tags</label>
+                        <label for="aliases" id="label-alias">Related Tags:</label>
                         <div id="aliases" class="tags d-flex flex-wrap pl-0 pr-0">
                             <span class="badge badge-tag" ng-click="ctrl.toggleTag(tag.name)" ng-repeat="tag in ctrl.alias | orderBy : posts | limitTo : 10 track by $index" ng-if="tag.posts > 0">{{tag.name}} ({{tag.posts}})</span>
                         </div>
@@ -83,13 +84,6 @@
                     <input type="checkbox" name="infiniteScroll" id="infiniteScroll" class="switch">
                     <label for="approved" class="ml-2 mt-2">Infinite scroll</label>
                 </div>
-
-                <!-- Page size
-                <div class="form-group mb-3">
-                    <label for="input_pageSize">Images per page:</label>
-                    <input id="input_pageSize" type="number" min="1" max="50" class="form-control" aria-describedby="help_pageSize" ng-model="ctrl.pageSize">
-                    <small id="help_pageSize">How many per load? (capped at 50)</small>
-                </div> -->
             </form>
 
             <!-- Get Results-->
@@ -111,8 +105,12 @@
                     <!-- Details -->
                     <div class="collapse details">
                         <div class="info d-flex justify-content-between">
-                            <span>Score: {{post.score}}</span>
-                            <span>Rating: {{post.rating.toUpperCase()}}</span>
+                            <span class="rating">{{post.rating.toUpperCase()}}</span>
+                            <span class="score" ng-if="post.score > 0">{{post.score}}</span>
+
+                            <!-- Source -->
+                            <a class="source" ng-if="post.source.startsWith('http')" ng-href="{{post.source}}">Source</a>
+                            <span class="source" ng-if="post.source.length > 0 && !post.source.startsWith('http')">{{post.source}}</span>
                         </div>
                         <div class="tags d-flex flex-wrap">
                             <span class="badge badge-tag" ng-class="{{ctrl.activeTags.includes(tag) ? 'active' : 'inactive'}}" ng-click="ctrl.toggleTag(tag)"
