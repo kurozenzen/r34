@@ -156,6 +156,14 @@ a:link {
     margin-bottom: 0px;
 }
 
+.exclude::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 800;
+    content: "\f05e";
+    display: inline-block;
+    padding-right: 5px;
+}
+
 .rating::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
@@ -182,4 +190,17 @@ a:link {
 
 .info .tags {
     margin-top: 0px;
+}
+
+.menu-link {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.menu-bar .active {
+    font-weight: bold;
+}
+
+b {
+    color: red;
 }

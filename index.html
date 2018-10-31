@@ -41,6 +41,11 @@
 <body class="dark" ng-app="r34App" ng-controller="r34Ctrl as ctrl" ng-init="ctrl.init()">
     <header class="page-header pt-4">
         <h1>Browse <a href="https://en.wikipedia.org/wiki/Rule_34_(Internet_meme)">Rule34</a></h1>
+
+        <div class="container d-flex justify-content-center menu-bar">
+            <a class="menu-link active" href="https://kurozenzen.github.io/r34/">Search</a>
+            <a class="menu-link" href="https://kurozenzen.github.io/r34/html/help.html">Help</a>
+        </div>
     </header>
 
     <main>
@@ -61,7 +66,7 @@
                         </div>
                     </div>
                     <div class="tags d-flex flex-wrap pl-0 pr-0">
-                        <span class="badge badge-tag" ng-click="ctrl.removeTag(tag)" ng-repeat="tag in ctrl.activeTags track by $index">{{tag}}</span>
+                        <span class="badge badge-tag" ng-class="ctrl.tagClass(tag)" ng-click="ctrl.removeTag(tag)" ng-repeat="tag in ctrl.activeTags track by $index">{{ctrl.tagName(tag)}}</span>
                     </div>
 
                     <!-- Related Tags -->
@@ -71,6 +76,12 @@
                             <span class="badge badge-tag" ng-click="ctrl.toggleTag(tag.name)" ng-repeat="tag in ctrl.alias | orderBy : posts | limitTo : 10 track by $index" ng-if="tag.posts > 0">{{tag.name}} ({{tag.posts}})</span>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Filter -->
+                <div class="form-check mb-1 pl-0">
+                    <input type="checkbox" name="likes" id="likes" class="switch">
+                    <label for="likes" class="ml-2 mt-2">Sort by popular</label>
                 </div>
 
                 <!-- Filter -->

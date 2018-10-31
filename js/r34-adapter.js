@@ -40,10 +40,14 @@ app.controller('r34Ctrl', function ($http) {
     // get posts
     controller.getPosts = function (mode) {
         controller.lastScroll = Date.now();
+
+        let tagArray = controller.activeTags.map(v => v);
+        if ($('#likes').prop('checked')) 
+            tagArray.push("sort:score");
         let tags = "";
         let page = "";
-        if (controller.activeTags.length > 0) {
-            tags = "&tags=" + controller.activeTags.join("+");
+        if (tagArray.length > 0) {
+            tags = "&tags=" + tagArray.join("+");
         }
 
         if (mode === "append") {
@@ -119,6 +123,24 @@ app.controller('r34Ctrl', function ($http) {
         }
     };
 
+    controller.tagClass = function (tag) {
+        if (tag.startsWith("-"))
+            return "exclude";
+        if (tag.startsWith("source:"))
+            return "source";
+        if (tag.startsWith("rating:"))
+            return "rating";
+        return "";
+    };
+
+    controller.tagName = function (tag) {
+        if (tag.includes(":"))
+            return tag.split(":")[1];
+        if (tag.startsWith("-"))
+            return tag.substring(1);
+        return tag;
+    }
+
     // get tags for awesomplete
     controller.getSuggestions = function () {
         let search = tagify($("#input_tag").val()) + "*";
@@ -139,9 +161,9 @@ app.controller('r34Ctrl', function ($http) {
         }
     };
 
-    controller.getAlias = function() {
+    controller.getAlias = function () {
         controller.alias = [];
-        for(let activeTag of controller.activeTags) {
+        for (let activeTag of controller.activeTags) {
             $http.get(serviceUrl + "/alias/" + activeTag)
                 .then(function (response) {
                     controller.alias.push(...response.data.filter(t => !controller.activeTags.includes(t.name)));
@@ -177,6 +199,8 @@ app.controller('r34Ctrl', function ($http) {
     };
 });
 
-function tagify(text) {
-    return text.toLowerCase().replace(/ /g, "_");
+function tagify(text) { // only for suggestions
+    return text.toLowerCase()
+        .replace(/ /g, "_")
+        .replace("-", "");
 }
