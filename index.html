@@ -2,23 +2,19 @@
 <html lang="en">
 
 <head>
+    <title>Rule34 Browser</title>
+
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rule34 Browser</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="author" content="KuroZenZen">
+    <meta name="description" content="A simple but powerful, tag-based search tool for rule34 content. Designed for mobile devices.">
+    <meta name="keywords" content="Rule34,Hentai,Porn">
 
+    <!-- Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
-    <meta name="theme-color" content="#000000" />
-
-    <!-- Analytics -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128354099-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-128354099-1'); 
-    </script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -34,6 +30,18 @@
     <!-- Custom Styles-->
     <link rel="stylesheet" href="css/bootstrap-switch.min.css">
     <link rel="stylesheet" href="css/override.css">
+
+    <!-- Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-128354099-1" async></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-128354099-1'); 
+    </script>
 </head>
 
 <body class="dark" ng-app="r34App" ng-controller="r34Ctrl as ctrl" ng-init="ctrl.init()">
