@@ -4,3 +4,5 @@
   If you come across any bugs, inconveniences or similar, please take the time to write an issue or feature request, as I would love to expand this site beyond its current state (but lack meaningful ideas).
 
   Try it out yourself: [Hosted with GithubPages](https://kurozenzen.github.io/r34/)
+  
+  For more advanced search functionality see [the help page](https://kurozenzen.github.io/r34/html/help.html).
