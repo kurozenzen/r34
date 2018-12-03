@@ -1,5 +1,5 @@
 // config
-const serviceUrl = "https://custom-r34-api.herokuapp.com";
+let serviceUrl = "https://custom-r34-api.herokuapp.com";
 const autoCompleteUrl = "https://rule34.xxx/autocomplete.php";
 
 // angular
@@ -17,6 +17,15 @@ app.controller('r34Ctrl', function ($http) {
         controller.pageSize = 10;
         controller.noImagesLeft = false;
         controller.lastScroll = 0;
+
+        // check api availability
+        $http.get(serviceUrl)
+            .catch(function (error) {
+                let replacementService = "https://r34-api-clone.herokuapp.com";
+                console.log(serviceUrl + " is down. Using " + replacementService);
+                serviceUrl = replacementService;
+            });
+
         // init awesomplete
         var input = document.getElementById("input_tag");
         input.addEventListener("input", function () {
@@ -42,7 +51,7 @@ app.controller('r34Ctrl', function ($http) {
         controller.lastScroll = Date.now();
 
         let tagArray = controller.activeTags.map(v => v);
-        if ($('#likes').prop('checked')) 
+        if ($('#likes').prop('checked'))
             tagArray.push("sort:score");
         let tags = "";
         let page = "";
