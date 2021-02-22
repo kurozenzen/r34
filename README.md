@@ -1,3 +1,8 @@
+# IMPORTANT. THIS IS DEPRECATED
+
+Use this instead: https://kurozenzen.github.io/r34-react/
+
+
 # [Rule 34 for Mobile](https://kurozenzen.github.io/r34/)
   The aim of this web application is, to provide a more enjoyable experience while browsing rule34 on mobile devices. The sites main feature is an easy-to-use, tag-based search.
 
