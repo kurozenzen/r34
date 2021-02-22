@@ -1,174 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Rule34 Browser</title>
 
     <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#000000">
-    <meta name="author" content="KuroZenZen">
-    <meta name="description" content="A simple but powerful, tag-based search tool for rule34 content. Designed for mobile devices.">
-    <meta name="keywords" content="Rule34,Hentai,Porn">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="author" content="KuroZenZen" />
+    <meta
+      name="description"
+      content="A simple but powerful, tag-based search tool for rule34 content. Designed for mobile devices."
+    />
+    <meta name="keywords" content="Rule34,Hentai,Porn" />
 
     <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+      integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      crossorigin="anonymous"
+    />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="css/override.css">
+    <link rel="stylesheet" href="css/bootstrap-switch.min.css" />
+    <link rel="stylesheet" href="css/override.css" />
 
     <!-- Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script src="https://www.googletagmanager.com/gtag/js?id=UA-128354099-1" async></script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-128354099-1"
+      async
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-128354099-1'); 
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-128354099-1");
     </script>
-</head>
+  </head>
 
-<body class="dark" ng-app="r34App" ng-controller="r34Ctrl as ctrl" ng-init="ctrl.init()">
+  <body
+    class="dark"
+    ng-app="r34App"
+    ng-controller="r34Ctrl as ctrl"
+    ng-init="ctrl.init()"
+  >
     <header class="page-header pt-4">
-        <h1>Browse <a href="https://en.wikipedia.org/wiki/Rule_34_(Internet_meme)">Rule34</a></h1>
+      <h1>
+        Browse
+        <a href="https://en.wikipedia.org/wiki/Rule_34_(Internet_meme)"
+          >Rule34</a
+        >
+      </h1>
 
-        <div class="container d-flex justify-content-center menu-bar">
-            <a class="menu-link active" href="https://kurozenzen.github.io/r34/">Search</a>
-            <a class="menu-link" href="https://kurozenzen.github.io/r34/html/help.html">Help</a>
-        </div>
+      <div class="container d-flex justify-content-center menu-bar">
+        <a class="menu-link active" href="https://kurozenzen.github.io/r34/"
+          >Search</a
+        >
+        <a
+          class="menu-link"
+          href="https://kurozenzen.github.io/r34/html/help.html"
+          >Help</a
+        >
+      </div>
     </header>
 
+    <section class="container message">
+      <h1>Important update</h1>
+      <p>
+        This version has been deprecated and there is a new version available
+        here:
+        <a href="https://kurozenzen.github.io/r34-react/"
+          >https://kurozenzen.github.io/r34-react/</a
+        >
+      </p>
+    </section>
+
     <main>
-        <!-- Search -->
-        <section class="container dark">
-            <h2>Search</h2>
+      <!-- Search -->
+      <section class="container dark">
+        <h2>Search</h2>
 
-            <!-- Search parameters -->
-            <form>
+        <!-- Search parameters -->
+        <form>
+          <!-- Tags -->
+          <div>
+            <label for="input_tag">Add tags:</label>
+            <div class="input-group d-flex">
+              <input id="input_tag" type="text" class="form-control" />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-red"
+                  ng-click="ctrl.addTag()"
+                  id="btn-add-tag"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div class="tags d-flex flex-wrap pl-0 pr-0">
+              <span
+                class="badge badge-tag"
+                ng-class="ctrl.tagClass(tag)"
+                ng-click="ctrl.removeTag(tag)"
+                ng-repeat="tag in ctrl.activeTags track by $index"
+                >{{ctrl.tagName(tag)}}</span
+              >
+            </div>
 
-                <!-- Tags -->
-                <div>
-                    <label for="input_tag">Add tags:</label>
-                    <div class="input-group d-flex">
-                        <input id="input_tag" type="text" class="form-control">
-                        <div class="input-group-append">
-                            <button class="btn btn-red" ng-click="ctrl.addTag()" id="btn-add-tag">Add</button>
-                        </div>
-                    </div>
-                    <div class="tags d-flex flex-wrap pl-0 pr-0">
-                        <span class="badge badge-tag" ng-class="ctrl.tagClass(tag)" ng-click="ctrl.removeTag(tag)" ng-repeat="tag in ctrl.activeTags track by $index">{{ctrl.tagName(tag)}}</span>
-                    </div>
+            <!-- Related Tags -->
+            <div ng-if="ctrl.alias.length > 0">
+              <label for="aliases" id="label-alias">Related Tags:</label>
+              <div id="aliases" class="tags d-flex flex-wrap pl-0 pr-0">
+                <span
+                  class="badge badge-tag"
+                  ng-click="ctrl.toggleTag(tag.name)"
+                  ng-repeat="tag in ctrl.alias | orderBy : posts | limitTo : 10 track by $index"
+                  ng-if="tag.posts > 0"
+                  >{{tag.name}} ({{tag.posts}})</span
+                >
+              </div>
+            </div>
+          </div>
 
-                    <!-- Related Tags -->
-                    <div ng-if="ctrl.alias.length > 0">
-                        <label for="aliases" id="label-alias">Related Tags:</label>
-                        <div id="aliases" class="tags d-flex flex-wrap pl-0 pr-0">
-                            <span class="badge badge-tag" ng-click="ctrl.toggleTag(tag.name)" ng-repeat="tag in ctrl.alias | orderBy : posts | limitTo : 10 track by $index" ng-if="tag.posts > 0">{{tag.name}} ({{tag.posts}})</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Filter -->
-                <div class="form-check mb-1 pl-0">
-                    <input type="checkbox" name="likes" id="likes" class="switch">
-                    <label for="likes" class="ml-2 mt-2">Sort by popular</label>
-                </div>
+          <!-- Filter -->
+          <div class="form-check mb-1 pl-0">
+            <input type="checkbox" name="likes" id="likes" class="switch" />
+            <label for="likes" class="ml-2 mt-2">Sort by popular</label>
+          </div>
 
-                <!-- Filter -->
-                <div class="form-check mb-1 pl-0">
-                    <input type="checkbox" name="approved" id="approved" class="switch">
-                    <label for="approved" class="ml-2 mt-2">Only show rated</label>
-                </div>
+          <!-- Filter -->
+          <div class="form-check mb-1 pl-0">
+            <input
+              type="checkbox"
+              name="approved"
+              id="approved"
+              class="switch"
+            />
+            <label for="approved" class="ml-2 mt-2">Only show rated</label>
+          </div>
 
-                <!-- Misc -->
-                <div class="form-check mb-2 pl-0">
-                    <input type="checkbox" name="infiniteScroll" id="infiniteScroll" class="switch">
-                    <label for="approved" class="ml-2 mt-2">Infinite scroll</label>
-                </div>
-            </form>
+          <!-- Misc -->
+          <div class="form-check mb-2 pl-0">
+            <input
+              type="checkbox"
+              name="infiniteScroll"
+              id="infiniteScroll"
+              class="switch"
+            />
+            <label for="approved" class="ml-2 mt-2">Infinite scroll</label>
+          </div>
+        </form>
 
-            <!-- Get Results-->
-            <button class="btn btn-block btn-red" ng-click="ctrl.getPosts('search')">Search</button>
-        </section>
+        <!-- Get Results-->
+        <button
+          class="btn btn-block btn-red"
+          ng-click="ctrl.getPosts('search')"
+        >
+          Search
+        </button>
+      </section>
 
-        <!-- Results -->
-        <section class="container dark" ng-if="ctrl.posts.length > 0">
-            <h2>Results</h2> 
+      <!-- Results -->
+      <section class="container dark" ng-if="ctrl.posts.length > 0">
+        <h2>Results</h2>
 
-            <!-- Posts -->
-            <ul class="list-group list-inline" infinite-scroll="ctrl.infiniteScroll()" infinite-scroll-distance="3" infinite-scroll-disabled="ctrl.infiniteScrollDisabled()">
-                <li class="list-group-item light-dark" ng-repeat="post in ctrl.posts" ng-attr-id="{{post.id}}">
+        <!-- Posts -->
+        <ul
+          class="list-group list-inline"
+          infinite-scroll="ctrl.infiniteScroll()"
+          infinite-scroll-distance="3"
+          infinite-scroll-disabled="ctrl.infiniteScrollDisabled()"
+        >
+          <li
+            class="list-group-item light-dark"
+            ng-repeat="post in ctrl.posts"
+            ng-attr-id="{{post.id}}"
+          >
+            <!-- Media -->
+            <img
+              ng-if="post.type==='image'"
+              ng-src="{{post.file_url}}"
+              alt="Image"
+              class="img-fluid"
+              ng-click="ctrl.details(post.id)"
+            />
+            <video
+              controls
+              loop
+              ng-if="post.type==='video'"
+              ng-src="{{post.file_url}}"
+              alt="Video"
+              class="img-fluid"
+              ng-click="ctrl.details(post.id)"
+            ></video>
 
-                    <!-- Media -->
-                    <img ng-if="post.type==='image'" ng-src="{{post.file_url}}" alt="Image" class="img-fluid" ng-click="ctrl.details(post.id)">
-                    <video controls loop ng-if="post.type==='video'" ng-src="{{post.file_url}}" alt="Video" class="img-fluid" ng-click="ctrl.details(post.id)"></video>
+            <!-- Details -->
+            <div class="collapse details">
+              <div class="info d-flex justify-content-between">
+                <span class="rating">{{post.rating.toUpperCase()}}</span>
+                <span class="score" ng-if="post.score > 0">{{post.score}}</span>
 
-                    <!-- Details -->
-                    <div class="collapse details">
-                        <div class="info d-flex justify-content-between">
-                            <span class="rating">{{post.rating.toUpperCase()}}</span>
-                            <span class="score" ng-if="post.score > 0">{{post.score}}</span>
+                <!-- Source -->
+                <a
+                  class="source"
+                  ng-if="post.source.startsWith('http')"
+                  ng-href="{{post.source}}"
+                  >Source</a
+                >
+                <span
+                  class="source"
+                  ng-if="post.source.length > 0 && !post.source.startsWith('http')"
+                  >{{post.source}}</span
+                >
+              </div>
+              <div class="tags d-flex flex-wrap">
+                <span
+                  class="badge badge-tag"
+                  ng-class="{{ctrl.activeTags.includes(tag) ? 'active' : 'inactive'}}"
+                  ng-click="ctrl.toggleTag(tag)"
+                  ng-repeat="tag in post.tags track by $index"
+                  >{{tag}}</span
+                >
+              </div>
+            </div>
+          </li>
 
-                            <!-- Source -->
-                            <a class="source" ng-if="post.source.startsWith('http')" ng-href="{{post.source}}">Source</a>
-                            <span class="source" ng-if="post.source.length > 0 && !post.source.startsWith('http')">{{post.source}}</span>
-                        </div>
-                        <div class="tags d-flex flex-wrap">
-                            <span class="badge badge-tag" ng-class="{{ctrl.activeTags.includes(tag) ? 'active' : 'inactive'}}" ng-click="ctrl.toggleTag(tag)"
-                                ng-repeat="tag in post.tags track by $index">{{tag}}</span>
-                        </div>
-                    </div>
-                </li>
+          <li ng-if="ctrl.noImagesLeft" class="pt-3">
+            <h4>Sadly, there are no more posts...</h4>
+          </li>
+        </ul>
 
-                <li ng-if="ctrl.noImagesLeft" class="pt-3">
-                    <h4>Sadly, there are no more posts...</h4>
-                </li>
-            </ul>
-
-            <!-- Load more posts -->
-            <button class="btn btn-block btn-red" ng-if="!ctrl.noImagesLeft" ng-click="ctrl.getPosts('append')">Load More</button>
-        </section>
+        <!-- Load more posts -->
+        <button
+          class="btn btn-block btn-red"
+          ng-if="!ctrl.noImagesLeft"
+          ng-click="ctrl.getPosts('append')"
+        >
+          Load More
+        </button>
+      </section>
     </main>
 
     <footer class="page-footer">
-        <div class="d-flex justify-content-center">
-            <p>
-                <a href="https://github.com/kurozenzen/r34">Github Repository</a>
-            </p>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p>Please, if you notice
-                <a href="https://github.com/kurozenzen/r34/issues/new?template=bug_report.md">something isn't right</a>, or you
-                <a href="https://github.com/kurozenzen/r34/issues/new?template=feature_request.md">want a feature</a> to be implemented take the time to let me know.</p>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p>Hosted with Github Pages.</p>
-        </div>
+      <div class="d-flex justify-content-center">
+        <p>
+          <a href="https://github.com/kurozenzen/r34">Github Repository</a>
+        </p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p>
+          Please, if you notice
+          <a
+            href="https://github.com/kurozenzen/r34/issues/new?template=bug_report.md"
+            >something isn't right</a
+          >, or you
+          <a
+            href="https://github.com/kurozenzen/r34/issues/new?template=feature_request.md"
+            >want a feature</a
+          >
+          to be implemented take the time to let me know.
+        </p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p>Hosted with Github Pages.</p>
+      </div>
     </footer>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/bootstrap-switch.min.js"></script>
 
     <!-- AngularJS -->
@@ -180,6 +319,5 @@
 
     <!-- Custom AngularJS Controller -->
     <script src="js/r34-adapter.js"></script>
-</body>
-
+  </body>
 </html>

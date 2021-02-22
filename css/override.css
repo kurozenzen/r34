@@ -8,199 +8,206 @@ span,
 label,
 input,
 small {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 section,
 li {
-    margin-bottom: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 html,
 body {
-    background-color: black;
+  background-color: black;
 }
 
 body {
-    background-image: url(../assets/53nd-nud35.png);
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url(../assets/53nd-nud35.png);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .dark {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .light-dark {
-    border: none;
-    background-color: #333333;
-    padding: 0px;
+  border: none;
+  background-color: #333333;
+  padding: 0px;
 }
 
 .info {
-    font-size: 1.2em;
-    padding: 5px;
-    padding-bottom: 0px;
+  font-size: 1.2em;
+  padding: 5px;
+  padding-bottom: 0px;
 }
 
 .info span,
 .info a {
-    margin: 5px;
+  margin: 5px;
 }
 
 .tags {
-    padding: 5px;
+  padding: 5px;
 }
 
 .badge-tag {
-    vertical-align: middle;
-    font-size: 1.2em;
-    margin: 5px;
-    background-color: black;
-    color: red;
-    border: red thin solid;
+  vertical-align: middle;
+  font-size: 1.2em;
+  margin: 5px;
+  background-color: black;
+  color: red;
+  border: red thin solid;
 }
 
 .badge-tag[ng-class="active"] {
-    color: black;
-    background-color: red;
+  color: black;
+  background-color: red;
 }
 
 .badge-tag:hover,
 .btn-red:hover {
-    -webkit-transition: color 0.3s linear;
-    -moz-transition: color 0.3s linear;
-    -ms-transition: color 0.3s linear;
-    -o-transition: color 0.3s linear;
-    transition: color 0.3s linear;
-    color: white;
-    cursor: pointer;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+  -ms-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+  color: white;
+  cursor: pointer;
 }
 
 .btn-red {
-    background-color: black;
-    color: red;
-    border: red thin solid;
+  background-color: black;
+  color: red;
+  border: red thin solid;
 }
 
 .btn-download {
-    background-color: transparent;
-    color: white;
-    border: none;
-    margin: none;
-    padding: none;
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin: none;
+  padding: none;
 }
 
 .awesomplete {
-    color: black;
+  color: black;
 }
 
 h1,
 h2,
 h4 {
-    text-align: center;
+  text-align: center;
 }
 
 section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 footer {
-    text-align: center;
+  text-align: center;
 }
 
 div.awesomplete {
-    width: calc(100% - 56px);
+  width: calc(100% - 56px);
 }
 
 /* reinstitute initial .form-control border radius when nested within .awesomeplete */
 
 .input-group .awesomplete .form-control {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 /* reinstitute .border-radius squaring within form groups */
 
 .input-group .awesomplete:first-child .form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .input-group .awesomplete:not(:first-child) .form-control {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .input-group .awesomplete:not(:first-child):not(:last-child) .form-control {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 input:focus,
 button:focus {
-    outline: none !important;
-    border-color: red;
-    box-shadow: 0 0 10px red !important;
+  outline: none !important;
+  border-color: red;
+  box-shadow: 0 0 10px red !important;
 }
 
 a:link {
-    color: red;
+  color: red;
 }
 
 .media-element {
-    max-height: 600px;
-    margin: auto;
+  max-height: 600px;
+  margin: auto;
 }
 
 #label-alias {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .exclude::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 800;
-    content: "\f05e";
-    display: inline-block;
-    padding-right: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  content: "\f05e";
+  display: inline-block;
+  padding-right: 5px;
 }
 
 .rating::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
-    content: "\f25d";
-    display: inline-block;
-    padding-right: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f25d";
+  display: inline-block;
+  padding-right: 5px;
 }
 
 .score::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
-    content: "\f004";
-    display: inline-block;
-    padding-right: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
+  display: inline-block;
+  padding-right: 5px;
 }
 
 .source::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 800;
-    content: "\f292";
-    display: inline-block;
-    padding-right: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  content: "\f292";
+  display: inline-block;
+  padding-right: 5px;
 }
 
 .info .tags {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .menu-link {
-    padding: 5px;
-    margin-right: 10px;
+  padding: 5px;
+  margin-right: 10px;
 }
 
 .menu-bar .active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 b {
-    color: red;
+  color: red;
+}
+
+.message {
+  padding: 20px;
+  border: 2px red solid;
+  border-radius: 5px;
+  background: #ffffff11;
 }
